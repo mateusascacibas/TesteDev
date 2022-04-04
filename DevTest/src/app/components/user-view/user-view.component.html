@@ -1,0 +1,22 @@
+<div  class="container">
+<form>
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome:</label>
+    <input #nome type="text" class="form-control" id="nome" aria-describedby="phoneHelp">
+  </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input #email type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="senha" class="form-label">Senha:</label>
+      <input #senha type="password" class="form-control" id="senha">
+    </div>
+    <div class="mb-3">
+        <label for="telefone" class="form-label">Telefone:</label>
+        <input #telefone type="number" class="form-control" id="telefone" aria-describedby="phoneHelp">
+      </div>
+      <button type="button" (click)="post(nome.value ,senha.value, telefone.value, email.value )" [routerLink]="['']">
+      Enviar
+      </button>
+</form>

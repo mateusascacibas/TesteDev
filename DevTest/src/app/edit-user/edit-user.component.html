@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <h2>Editar Usuario</h2>
+  
+    <form [formGroup]="form">
+      <p>Editar Nome:</p>
+      <input type="text" id="nomeInput" formControlName="nome" class="form-control"
+        placeholder="Digite o Usuario..." [disabled]="form.invalid" />
+        <p>Editar Email:</p>
+      <input type="email" id="emailInput" formControlName="email" class="form-control"
+        placeholder="Digite o Email..." [disabled]="form.invalid" />
+        <p>Editar Telefone:</p>
+        <input type="number" id="telefoneInput" formControlName="telefone" class="form-control"
+        placeholder="Digite o Telefone..." [disabled]="form.invalid" />
+        <p>Editar Senha:</p>
+        <input type="password" id="senhaInput" formControlName="senha" class="form-control"
+        placeholder="Digite a senha..." [disabled]="form.invalid" />
+      <div style="text-align: center; margin: 15px;">
+        <button type="button" class="btn btn-success"
+          (click)=editar() [routerLink]="['']" [disabled]="form.invalid">
+          Editar
+        </button> <button class="btn btn-light" [routerLink]="['']">Voltar</button>
+        <!---->
+      </div>
+     
+    </form>
+  
+    </div>

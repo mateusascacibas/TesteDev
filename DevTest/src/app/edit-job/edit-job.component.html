@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <h2>Editar Job</h2>
+  
+    <form [formGroup]="form">
+      <p>Editar Job:</p>
+      <input type="text" id="nomeInput" formControlName="nome" class="form-control"
+        placeholder="Digite o Job..." [disabled]="form.invalid" />
+        <p>Editar Status:</p>
+        <select #status name="status" id="status" formControlName="status" class="form-control"class="form-control">
+            <option value="Ativo">Ativo</option>
+            <option value="Inativo">Inativo</option>
+          </select>
+          <p>Editar Tipo:</p>
+          <select #tipo name="tipo" formControlName="tipo" id="tipo" class="form-control" class="form-control">
+            <option value="Intervalo">Intervalo</option>
+            <option value="Horario Fixo">Horario Fixo</option>
+          </select>
+      <div style="text-align: center; margin: 15px;">
+        <button type="button" class="btn btn-success"
+          (click)=editar() [disabled]="form.invalid" [routerLink]="['/listJobs']">
+          Editar
+        </button> <button class="btn btn-light" [routerLink]="['/listJobs']">Voltar</button>
+        <!---->
+      </div>   
+
+    </form>
+  
+    </div>

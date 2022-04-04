@@ -1,0 +1,67 @@
+
+<div  class="container">
+<tr>
+  
+  <th (click)="ordenar()" class="ordenar-tarefa">Usuarios
+    <i class="bi bi-sort-alpha-down" *ngIf="ascendente()"></i>
+    <i class="bi bi-sort-alpha-down-alt" *ngIf="!ascendente()"></i>
+  </th>
+</tr>
+ <div class="col-12 text-end mb-3">
+      <input type="text" placeholder="Pesquisar..." (keyup)="pesquisar($event)">
+    </div>
+<mat-card style="width: 80%; margin: auto;">
+  <table class="table">
+    <thead>
+      <tr>
+        <th (click)="ordenar()" class="ordenar-tarefa">Nome
+          <i class="bi bi-sort-alpha-down" *ngIf="ascendente()"></i>
+          <i class="bi bi-sort-alpha-down-alt" *ngIf="!ascendente()"></i>
+        </th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th (click)="ordenarData()" >Data
+          <i class="bi bi-sort-alpha-down" *ngIf="ascendente()"></i>
+          <i class="bi bi-sort-alpha-down-alt" *ngIf="!ascendente()"></i>
+        </th>
+        <th class="text-center"> <button type="button" class="btn btn-success btn-sm" [routerLink]="['/user']"><i
+              class="bi bi-plus-lg"></i> Novo</button></th>
+      </tr>
+    </thead>
+    <tbody>
+  
+  <tr  *ngFor="let user of usuarios; let i = index">
+    <td>{{ user.nome}}</td>
+    <td>{{ user.email}}</td>
+    <td>{{ user.telefone}}</td>
+    <td>{{ user.data_criacao  | date}}</td>
+    <td class="text-center">
+      <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/editUser/' + user.id]">
+        <i class="bi bi-pencil-fill">Editar</i>
+      </button>
+    </td>
+
+  </tr>
+</tbody>
+</table>
+
+ <nav>
+  <ul class="pagination justify-content-center">
+   <li class ="page-item" [ngClass] = "{disabled: pagina === 0}">
+    <a class="page-link" href="#" (click)= "paginar($event, 0)">
+      <span aria-hidden="true">&laquo;</span>
+    </a>
+   </li>
+    <li class="page-item" [ngClass] = "{'active': pag === pagina}" *ngFor= "let pag of obterPaginas()">
+      <a ng-class="(pag === currentPage) ? 'active': 'sucess'" class="page-link " href="#" (click)= "paginar($event, pag)">{{ pag + 1 }}</a>
+    </li>
+    <li class="page-item"  [ngClass] = "{disabled: pagina === numeroPaginas() - 1}">
+      <a class="page-link" href="#" (click)= "paginar($event, numeroPaginas() - 1)">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+

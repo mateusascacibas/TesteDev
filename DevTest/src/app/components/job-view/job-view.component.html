@@ -1,0 +1,35 @@
+<div  class="container">
+<form>
+    <div class="mb-3">
+      <label for="job" class="form-label">Job:</label>
+      <input #job type="text" class="form-control" id="job" aria-describedby="phoneHelp">
+    </div>
+      <div class="mb-3">
+        <label for="user" class="form-label">Id do Usuario:</label>
+        <select #user name="user" id="user" class="form-control">
+         <option *ngFor="let user of usuarios">{{user.id}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="status" class="form-label">Status:</label>
+            <select #status name="status" id="status" class="form-control">
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+              </select>
+      </div>
+      <div class="mb-3">
+          <label for="tipoRecorrencia" class="form-label">Tipo de Recorrencia:</label>
+          <select #tipoRecorrencia name="tipoRecorrencia" id="statipoRecorrenciaus" class="form-control">
+            <option value="Intervalo">Intervalo</option>
+            <option value="Horario Fixo">Horario Fixo</option>
+          </select>
+        </div>
+        <div class="mb-3">
+            <label for="valor" class="form-label">Valor de Recorrencia:</label>
+            <input #valor type="text" class="form-control" id="valor" aria-describedby="phoneHelp">
+          </div>
+        <button type="button" (click)="post(job.value,user.value , tipoRecorrencia.value , status.value, valor.value)" [routerLink]="['/listJobs']">
+        Enviar
+        </button>
+  </form>
+  
